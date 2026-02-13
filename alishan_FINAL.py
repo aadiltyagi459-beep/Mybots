@@ -66,8 +66,8 @@ FINGERPRINT_PUBLIC_BASE_URL = ""  # device-verify webapp disabled; keep empty to
 ENABLE_SMTP_BOUNCE_CHECK = True
 SMTP_GMAIL_USER = "aadiltyagi459@gmail.com"
 SMTP_GMAIL_APP_PASSWORD = "kawl rdaz jawr nhfp"
-BOUNCE_POLL_SECONDS = 8  # max wait time (fast mode)
-BOUNCE_POLL_INTERVALS = (2, 2, 4)  # total <= 8 sec
+BOUNCE_POLL_SECONDS = 4  # max wait time (fast mode)
+BOUNCE_POLL_INTERVALS = (1, 1, 2)  # total <= 8 sec
 
 
 # Local tutorial videos (place these files in /sdcard/Download/ in Termux)
