@@ -3420,18 +3420,16 @@ def main():
     print("✅ Bot started (Railway Webhook)...")
 
 PORT = int(os.environ.get("PORT", "8000"))
-PUBLIC_URL = os.environ.get("RAILWAY_STATIC_URL")  # Railway provides this
+PUBLIC_URL = os.environ.get("RAILWAY_STATIC_URL")
 
-if not PUBLIC_URL:
-    # fallback for local testing
+if PUBLIC_URL:
+    app.run_webhook(
+        listen="0.0.0.0",
+        port=PORT,
+        webhook_url=f"https://{PUBLIC_URL}/"
+    )
+else:
     app.run_polling()
-    return
-
-app.run_webhook(
-    listen="0.0.0.0",
-    port=PORT,
-    webhook_url=f"https://{PUBLIC_URL}/",
-)
 
 if __name__ == "__main__":
     main()
